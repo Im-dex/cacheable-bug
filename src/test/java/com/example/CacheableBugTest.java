@@ -1,21 +1,22 @@
 package com.example;
 
-import io.micronaut.runtime.EmbeddedApplication;
+import javax.inject.Inject;
+
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
-import javax.inject.Inject;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @MicronautTest
 class CacheableBugTest {
-
     @Inject
-    EmbeddedApplication<?> application;
+    CacheableBean bean;
 
     @Test
     void testItWorks() {
-        Assertions.assertTrue(application.isRunning());
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> bean.cachedMethod().block()
+        );
     }
-
 }

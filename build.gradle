@@ -25,6 +25,7 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.cache:micronaut-cache-caffeine")
+    implementation("io.micronaut.reactor:micronaut-reactor")
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 

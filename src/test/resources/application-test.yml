@@ -1,0 +1,4 @@
+micronaut:
+  caches:
+    my-cache:
+      maximum-size: 100500
